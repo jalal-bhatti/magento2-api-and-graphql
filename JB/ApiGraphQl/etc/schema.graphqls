@@ -1,0 +1,74 @@
+type Mutation {
+
+    createPost(
+        input:createPostInput!
+    ):createPostOutput
+    @resolver(class: "\\JB\\ApiGraphQl\\Model\\Resolver\\CreatePost") @doc(description:"Create Post")
+
+    updatePost(
+        input: updatePostInput
+    ):updatePostOutput
+    @resolver(class: "\\JB\\ApiGraphQl\\Model\\Resolver\\UpdatePost") @doc(description:"Update post data")
+
+    deletePost(
+        input: deletePostInput
+    ):deletePostOutput
+    @resolver(class: "\\JB\\ApiGraphQl\\Model\\Resolver\\DeletePost") @doc(description:"Delete post")
+}
+input createPostInput {
+    title: String @doc(description: "Title")
+    description: String @doc(description: "Description")
+    categories: String @doc(description: "Categories")
+    created_at: String @doc(description: "Created At")
+    updated_at: String @doc(description: "Updated At")
+}
+type createPostOutput {
+    message: String @doc(description: "Message")
+}
+
+input updatePostInput {
+    entity_id: String @doc(description: "Entity Id")
+    title: String @doc(description: "title")
+    description: String @doc(description: "Description")
+    categories: String @doc(description: "Categories")
+    created_at: String @doc(description: "Created At")
+    updated_at: String @doc(description: "Updated At")
+}
+
+type updatePostOutput {
+    message: String @doc(description: "Message")
+}
+
+input deletePostInput {
+    entity_id: Int @doc(description: "Entity Id")
+}
+type deletePostOutput {
+    message: String @doc(description: "Message")
+}
+type Query {
+    getPosts: [getPostsOutput] 
+    @resolver(class: "\\JB\\ApiGraphQl\\Model\\Resolver\\GetPosts") @doc(description: "Get all posts")
+
+    getPostById(
+        entity_id: Int @doc(description: "entity_id")
+    ): getPostByIdOutput 
+    @resolver(class: "\\JB\\ApiGraphQl\\Model\\Resolver\\GetPostById") @doc(description: "Get post by id") 
+}
+
+type getPostsOutput @doc(description: "Get all posts") {
+    entity_id: String @doc(description: "Entity Id")
+    title: String @doc(description: "title")
+    description: String @doc(description: "Description")
+    categories: String @doc(description: "Categories")
+    created_at: String @doc(description: "Created At")
+    updated_at: String @doc(description: "Updated At")
+}
+
+type getPostByIdOutput @doc(description: "Get post by id") {
+    entity_id: String @doc(description: "Entity Id")
+    title: String @doc(description: "title")
+    description: String @doc(description: "Description")
+    categories: String @doc(description: "Categories")
+    created_at: String @doc(description: "Created At")
+    updated_at: String @doc(description: "Updated At")
+}

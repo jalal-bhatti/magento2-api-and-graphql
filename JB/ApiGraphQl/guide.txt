@@ -1,0 +1,141 @@
+Create Post Api:
+================
+http://magento245.com/rest/V1/post/add-edit/
+{
+  "postdata": 
+  {
+    "title": "What is Lorem Ipsum?",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry ever since the 1500s",
+    "categories": "Lorem Ipsum",
+    "created_at": "2022-09-01 12:34:19",
+    "updated_at": "2022-09-01 12:34:19"
+  }
+}
+
+
+Update Post Api:
+================
+http://magento245.com/rest/V1/post/add-edit/
+
+{
+  "postdata": 
+  {
+    "entity_id": "11", 
+    "title": "updated title",
+    "description": "updated description",
+    "categories": "sasasas",
+    "created_at": "2022-09-01 12:34:19",
+    "updated_at": "2022-09-01 12:34:19"
+  }
+}
+
+
+
+
+Delete Post Api:
+================
+http://magento245.com/rest/V1/post/deletepost/10
+
+
+
+
+Get All Post Api:
+================
+http://magento245.com/rest/V1/post/getposts/
+
+
+
+
+Get PostById Api:
+===============
+http://magento245.com/rest/V1/post/getpost/1
+
+
+
+
+
+GraphQl:
+========
+
+Get ALl Post GraphQl:
+=====================
+query {
+    getPosts{
+      entity_id
+      title
+      description
+      categories
+      created_at
+      updated_at
+    }
+}
+
+
+Get PostById GraphQl:
+=====================
+query {
+    getPostById(
+    entity_id:3
+    )
+    {
+     entity_id
+     title
+     description
+     categories
+     created_at
+     updated_at
+    }
+}
+
+
+
+
+
+
+
+Create Post GraphQl:
+===================
+
+mutation {
+  createPost(
+    input: {
+      title:"My New Post 2",
+      description:"Create post using Graphql 2"
+      categories:"Graphql, Mutations 1"
+      created_at:"2022-09-01 12:34:19"
+      updated_at:"2022-09-01 12:34:19"
+    }
+  ) {message}
+}
+
+
+
+Update Post GraphQl:
+===================
+
+mutation {
+  updatePost(
+    input: {
+      entity_id:7
+      title:"1111",
+      description:"sasa"
+      categories:"asasas"
+      created_at:"2022-09-01 12:34:19"
+      updated_at:"2022-09-01 12:34:19"
+    }
+  ) {message}
+}
+
+
+Delete Post GraphQl:
+===================
+
+mutation {
+  deletePost(
+    input: {
+      entity_id:7
+    }
+  ) {message}
+}
+
+

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="jb_posts" resource="default" engine="innodb" comment="Posts Entity">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity ID" />
+        <column xsi:type="varchar" name="title" nullable="false" comment="Title" length="255" />
+        <column xsi:type="text" name="description" nullable="true" comment="Title" />
+        <column xsi:type="varchar" name="categories" nullable="false" comment="Title" length="255" />
+        <column xsi:type="timestamp" name="created_at" nullable="false" comment="Creation datetime"
+                default="CURRENT_TIMESTAMP"  />
+        <column xsi:type="timestamp" name="updated_at" nullable="false" on_update="true" default="CURRENT_TIMESTAMP"
+                comment="Update datetime" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id" />
+        </constraint>
+        <constraint xsi:type="unique" referenceId="POSTS_ENTT_ID">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+</schema>
